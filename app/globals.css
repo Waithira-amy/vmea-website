@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  --color-vmea-bg: #050505;
+  --color-vmea-card: #111111;
+  --color-vmea-gold: #D4AF37;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-vmea-bg);
+  color: #FDFBF7;
+  overflow-x: hidden;
+}
