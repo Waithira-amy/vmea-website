@@ -22,7 +22,7 @@ export default function About() {
           <span className="text-[#D4AF37] text-[9px] font-bold uppercase tracking-[0.3em] flex items-center justify-center gap-1.5 mb-4">
             <Star className="w-3 h-3" /> THE VOICE THAT EMPOWERS
           </span>
-          <h2 className="font-serif text-3xl md:text-5xl font-bold text-white mb-6">Redefining Excellence in Meru</h2>
+          <h2 className="font-serif text-3xl md:text-5xl font-bold text-white mb-6">About Us</h2>
           <p className="text-white/70 max-w-3xl mx-auto text-sm leading-relaxed">
             The Voice of Meru Excellence Awards (VMEA) is a dynamic recognition platform committed to professionalism and transformative community impact. We are dedicated to identifying, educating, and honoring the outstanding individuals who serve as the perfect brand ambassadors for our county's brightest future.
           </p>
