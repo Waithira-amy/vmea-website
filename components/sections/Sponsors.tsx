@@ -1,10 +1,9 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { ShieldCheck, Mail, Megaphone, Users, ThumbsUp, Network, Award, CheckCircle2 } from "lucide-react";
+import { ShieldCheck, Phone, Megaphone, Users, ThumbsUp, Network, Award, CheckCircle2 } from "lucide-react";
 
 export default function Sponsors() {
-  // Data extracted directly from the VMEA presentation slides
   const generalBenefits = [
     { icon: Megaphone, text: "Brand visibility before, during, and after the event." },
     { icon: Users, text: "Access to a targeted audience." },
@@ -144,19 +143,44 @@ export default function Sponsors() {
           </div>
         </div>
 
-        {/* Call to Action */}
-        <div className="bg-gradient-to-br from-[#111111] to-[#1A1500] border border-[#D4AF37]/30 p-10 rounded-[2rem] text-center max-w-3xl mx-auto flex flex-col items-center shadow-2xl relative overflow-hidden">
+        {/* Call to Action with Logo & Contacts */}
+        <div className="bg-gradient-to-br from-[#111111] to-[#1A1500] border border-[#D4AF37]/30 p-10 rounded-[2rem] text-center max-w-4xl mx-auto flex flex-col items-center shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4AF37]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
           
-          <ShieldCheck className="w-12 h-12 text-[#D4AF37] mb-6 relative z-10" />
+          <img src="/logo.png" alt="VMEA Official Logo" className="w-24 h-24 object-contain mb-6 relative z-10 drop-shadow-xl" />
+          
           <h3 className="font-serif text-3xl font-bold text-white mb-4 relative z-10">Ready to Partner with VMEA?</h3>
-          <p className="text-white/60 text-sm leading-relaxed mb-8 relative z-10 max-w-xl">
+          <p className="text-white/60 text-sm leading-relaxed mb-10 relative z-10 max-w-xl">
             Secure your sponsorship package today and join us in recognizing excellence and inspiring generations across Meru County.
           </p>
           
-          <Link href="mailto:info@vmea.co.ke" className="relative z-10 bg-[#D4AF37] text-black px-10 py-5 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-yellow-400 transition-all hover:scale-105 shadow-[0_0_30px_rgba(212,175,55,0.3)] flex items-center gap-3">
-            <Mail className="w-5 h-5" /> Apply Now: info@vmea.co.ke
-          </Link>
+          {/* Phone Contacts */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10 mb-10 w-full">
+            <Link href="tel:+254714591468" className="w-full sm:w-auto bg-[#D4AF37] text-black px-8 py-4 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-yellow-400 transition-all hover:scale-105 shadow-[0_0_30px_rgba(212,175,55,0.3)] flex items-center justify-center gap-3">
+              <Phone className="w-5 h-5" /> +254 714 591468
+            </Link>
+            <Link href="tel:+254719314805" className="w-full sm:w-auto bg-[#D4AF37] text-black px-8 py-4 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-yellow-400 transition-all hover:scale-105 shadow-[0_0_30px_rgba(212,175,55,0.3)] flex items-center justify-center gap-3">
+              <Phone className="w-5 h-5" /> +254 719 314 805
+            </Link>
+          </div>
+
+          {/* Social Links inside Sponsor Block */}
+          <div className="relative z-10 border-t border-white/10 pt-8 w-full flex flex-col items-center">
+            <span className="text-[#D4AF37] text-xs font-bold uppercase tracking-widest mb-4">Connect With Us</span>
+            <div className="flex items-center gap-4">
+              <a href="https://www.facebook.com/share/p/1AZ1yJYScr/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-[#111111] border border-white/10 flex items-center justify-center hover:bg-[#D4AF37] hover:text-black hover:border-[#D4AF37] transition-all text-white shadow-lg hover:-translate-y-1">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </a>
+              <a href="https://www.instagram.com/p/Db6fIvdIqfY/?igsi=YnE4cjl2M2MzaWkz" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-[#111111] border border-white/10 flex items-center justify-center hover:bg-[#D4AF37] hover:text-black hover:border-[#D4AF37] transition-all text-white shadow-lg hover:-translate-y-1">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+              </a>
+              <a href="https://www.tiktok.com/@voice.ofmeru.exce?_r=1&_t=ZS-99HtzWGog54" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-[#111111] border border-white/10 flex items-center justify-center hover:bg-[#D4AF37] hover:text-black hover:border-[#D4AF37] transition-all text-white shadow-lg hover:-translate-y-1">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
 
       </div>

@@ -21,14 +21,14 @@ export default function Categories() {
     },
     { 
       title: "Agriculture & Farming", 
-      count: "14 Sub-Categories",
+      count: "15 Sub-Categories",
       desc: "Celebrating excellence in crop production, livestock, and agribusiness.",
       subCategories: [
         "Farmer of the Year", "Best Dairy Farmer", "Best Coffee Farmer", 
         "Best Miraa (Khat) Farmer", "Best Tea Farmer", "Best Horticulture Farmer", 
-        "Best Poultry Farmer", "Best Livestock Farmer", "Agribusiness Innovator of the Year", 
-        "Young Farmer of the Year", "Woman Farmer of the Year", "Best Cooperative Society", 
-        "Agroforestry Champion", "Best Irrigation Project"
+        "Horticulture Farmer of the Year", "Best Poultry Farmer", "Best Livestock Farmer", 
+        "Agribusiness Innovator of the Year", "Young Farmer of the Year", "Woman Farmer of the Year", 
+        "Best Cooperative Society", "Agroforestry Champion", "Best Irrigation Project"
       ]
     },
     { 
@@ -44,14 +44,14 @@ export default function Categories() {
     },
     { 
       title: "Business & Entrepreneurship", 
-      count: "13 Sub-Categories",
+      count: "15 Sub-Categories",
       desc: "Highlighting innovators, enterprises, and corporate leaders.",
       subCategories: [
         "Entrepreneur of the Year", "Young Entrepreneur of the Year", "Woman Entrepreneur of the Year", 
         "Best SME", "Best Startup", "Business Innovation Award", 
         "Best Retail Business", "Best Hospitality Business", "Best Transport & Logistics Business", 
         "Best Manufacturing Enterprise", "Best Export Business", "Best CSR Initiative", 
-        "Business Lifetime Achievement Award"
+        "Business Lifetime Achievement Award", "Bank", "Best Distributor of the Year"
       ]
     },
     { 
