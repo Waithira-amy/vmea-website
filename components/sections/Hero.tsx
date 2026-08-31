@@ -5,20 +5,20 @@ import { Star, ArrowRight } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section id="home" className="relative w-full min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-[#050505]">
+    <section id="home" className="relative w-full min-h-screen flex flex-col justify-end pt-32 pb-12 md:pb-20 overflow-hidden bg-[#050505]">
       
-      {/* Background Image & Overlays - UPDATED */}
+      {/* Background Image & Overlays */}
       <div className="absolute inset-0 z-0">
         <img 
           src="/vmea-bg.jpg" 
           alt="VMEA Stage" 
-          className="absolute inset-0 w-full h-full object-cover object-center opacity-85" 
+          className="absolute inset-0 w-full h-full object-cover object-center opacity-90" 
         />
-        {/* Darkened the overlay slightly to ensure the bright gold logos don't overpower the text */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#050505]/95 via-[#050505]/60 to-[#050505]/80" />
+        {/* Vertical gradient keeps the bottom dark behind the text boxes, but the center perfectly clear */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/20 to-[#050505]/70" />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mt-10 lg:mt-0">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-end mt-auto">
         
         {/* Left Side */}
         <div className="flex flex-col items-start bg-[#111111]/80 p-6 md:p-8 rounded-[1.5rem] border border-white/5 shadow-2xl backdrop-blur-md">
@@ -41,7 +41,7 @@ export default function Hero() {
         </div>
 
         {/* Right Side */}
-        <div className="bg-[#111111]/80 p-8 rounded-[1.5rem] border border-white/5 shadow-2xl flex flex-col items-center text-center mx-auto w-full max-w-sm backdrop-blur-md">
+        <div className="bg-[#111111]/80 p-8 rounded-[1.5rem] border border-white/5 shadow-2xl flex flex-col items-center text-center w-full max-w-sm backdrop-blur-md lg:justify-self-end">
           <h3 className="font-serif text-2xl font-bold text-white mb-2">Gala Night 2026</h3>
           <div className="w-12 h-1 bg-[#D4AF37] rounded-full mb-6"></div>
           
@@ -57,6 +57,7 @@ export default function Hero() {
           </div>
           <p className="text-[9px] text-white/40 uppercase tracking-widest mt-3">The Ultimate Celebration</p>
         </div>
+        
       </div>
     </section>
   );
