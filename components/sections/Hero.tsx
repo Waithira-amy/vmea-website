@@ -14,19 +14,17 @@ export default function Hero() {
           alt="VMEA Stage" 
           className="absolute inset-0 w-full h-full object-cover object-center opacity-90" 
         />
-        {/* The gradient at the bottom now does the heavy lifting to keep the floating text readable */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-[#050505]/70" />
       </div>
 
-      <div className="relative z-10 w-full max-w-[100rem] mx-auto px-6 flex flex-col lg:flex-row items-end justify-between gap-8 mt-auto pb-4">
+      <div className="relative z-10 w-full max-w-[100rem] mx-auto px-6 flex flex-col lg:flex-row items-end justify-between gap-6 lg:gap-8 mt-auto pb-4">
         
-        {/* Left Side - Completely Transparent */}
-        <div className="w-full lg:max-w-lg flex flex-col items-start p-2">
+        {/* Left Side - Glass on Mobile, Transparent on Desktop */}
+        <div className="w-full lg:max-w-lg flex flex-col items-start p-6 lg:p-2 bg-[#050505]/80 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none rounded-[1.5rem] lg:rounded-none border border-white/10 lg:border-transparent transition-all">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[#D4AF37]/50 bg-[#D4AF37]/10 text-[#D4AF37] text-[9px] font-bold uppercase tracking-widest mb-5 backdrop-blur-sm">
             <Star className="w-3 h-3" /> 1st Edition
           </div>
           
-          {/* Added drop-shadows to text so it pops against the background */}
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-white tracking-tight leading-[1.1] mb-5 drop-shadow-2xl">
             VOICE OF MERU <br />
             <span className="text-[#D4AF37]">AWARDS.</span>
@@ -41,18 +39,17 @@ export default function Hero() {
           </Link>
         </div>
 
-        {/* Right Side - Completely Transparent */}
-        <div className="w-full lg:max-w-sm p-2 flex flex-col items-center text-center">
+        {/* Right Side - Glass on Mobile, Transparent on Desktop */}
+        <div className="w-full lg:max-w-sm p-6 lg:p-2 flex flex-col items-center text-center bg-[#050505]/80 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none rounded-[1.5rem] lg:rounded-none border border-white/10 lg:border-transparent transition-all">
           <h3 className="font-serif text-2xl font-bold text-white mb-2 drop-shadow-xl">Gala Night 2026</h3>
           <div className="w-12 h-1 bg-[#D4AF37] rounded-full mb-6 shadow-lg"></div>
           
           <div className="flex gap-4 w-full justify-center mb-5">
-            {/* Kept these inner boxes slightly dark so the event details remain highly visible */}
-            <div className="flex flex-col items-center bg-[#050505]/80 backdrop-blur-sm px-4 py-3 rounded-xl border border-white/10 w-20 shadow-2xl">
+            <div className="flex flex-col items-center bg-[#050505]/90 backdrop-blur-sm px-4 py-3 rounded-xl border border-white/10 w-20 shadow-2xl">
               <span className="text-xl font-bold text-white">TBA</span>
               <span className="text-[9px] text-[#D4AF37] uppercase tracking-widest mt-1">Date</span>
             </div>
-            <div className="flex flex-col items-center bg-[#050505]/80 backdrop-blur-sm px-4 py-3 rounded-xl border border-white/10 w-20 shadow-2xl">
+            <div className="flex flex-col items-center bg-[#050505]/90 backdrop-blur-sm px-4 py-3 rounded-xl border border-white/10 w-20 shadow-2xl">
               <span className="text-xl font-bold text-white">MERU</span>
               <span className="text-[9px] text-[#D4AF37] uppercase tracking-widest mt-1">Venue</span>
             </div>
