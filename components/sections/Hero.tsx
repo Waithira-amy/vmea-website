@@ -7,21 +7,21 @@ export default function Hero() {
   return (
     <section id="home" className="relative w-full min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-[#050505]">
       
-      {/* Background Image & Overlays - BRIGHTENED */}
+      {/* Background Image & Overlays - UPDATED */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/hero-bg.jpg" 
+          src="/vmea-bg.jpg" 
           alt="VMEA Stage" 
           className="absolute inset-0 w-full h-full object-cover object-center opacity-85" 
         />
-        {/* The "via-[#050505]/30" lets much more light through the middle */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#050505]/90 via-[#050505]/30 to-[#050505]/70" />
+        {/* Darkened the overlay slightly to ensure the bright gold logos don't overpower the text */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#050505]/95 via-[#050505]/60 to-[#050505]/80" />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mt-10 lg:mt-0">
         
         {/* Left Side */}
-        <div className="flex flex-col items-start bg-[#111111]/70 p-6 md:p-8 rounded-[1.5rem] border border-white/5 shadow-2xl backdrop-blur-md">
+        <div className="flex flex-col items-start bg-[#111111]/80 p-6 md:p-8 rounded-[1.5rem] border border-white/5 shadow-2xl backdrop-blur-md">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/10 text-[#D4AF37] text-[9px] font-bold uppercase tracking-widest mb-5">
             <Star className="w-3 h-3" /> 1st Edition
           </div>
