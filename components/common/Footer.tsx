@@ -68,7 +68,7 @@ export default function Footer() {
       
       {/* Bottom Copyright Strip */}
       <div className="max-w-7xl mx-auto border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center">
-         <p className="text-white/40 text-xs font-medium tracking-wide">© {new Date().getFullYear()} Voice of Meru Excellence Awards. All rights reserved.</p>
+         <p className="text-white/40 text-xs font-medium tracking-wide">© {new Date().getFullYear()} Perfectors Creative Hub. All rights reserved.</p>
          <p className="text-white/40 text-xs font-medium tracking-wide">Powered by Excellence.</p>
       </div>
     </footer>
