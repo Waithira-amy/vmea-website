@@ -16,10 +16,10 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About Us", href: "#about" },
-    { name: "Categories", href: "#categories" },
-    { name: "Sponsors", href: "#sponsors" },
+    { name: "Home", href: "/#home" },
+    { name: "About Us", href: "/#about" },
+    { name: "Categories", href: "/#categories" },
+    { name: "Sponsors", href: "/#sponsors" },
   ];
 
   return (
@@ -27,7 +27,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         
         {/* Brand & Logo */}
-        <Link href="#home" className="flex items-center gap-3 group">
+        <Link href="/#home" className="flex items-center gap-3 group">
           <img 
             src="/logo.png" 
             alt="VMEA Logo" 
@@ -50,10 +50,10 @@ export default function Navbar() {
             </Link>
           ))}
           <Link 
-            href="#categories" 
+            href="/register" 
             className="bg-[#D4AF37] text-black px-6 py-2 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-yellow-400 transition-all hover:scale-105 shadow-[0_0_15px_rgba(212,175,55,0.3)]"
           >
-            Vote Now
+            Register Now
           </Link>
         </div>
 
@@ -84,11 +84,11 @@ export default function Navbar() {
             </Link>
           ))}
           <Link 
-            href="#categories"
+            href="/register"
             onClick={() => setIsMobileMenuOpen(false)} 
             className="bg-[#D4AF37] text-black px-8 py-3 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-yellow-400 mt-2"
           >
-            Vote Now
+            Register Now
           </Link>
         </div>
       )}
