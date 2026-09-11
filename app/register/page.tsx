@@ -4,6 +4,44 @@ import Link from "next/link";
 import { User, Calendar, Phone, MapPin, Trophy, Upload, ArrowLeft, Loader2, CheckCircle2 } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 
+// 🏆 EDIT THIS LIST TO MATCH YOUR EXACT AWARDS!
+const AWARD_CATEGORIES = [
+  "Best Artist (Entertainment)",
+  "Best DJ (Entertainment)",
+  "Best Actor/Actress (Entertainment)",
+  "Content Creator of the Year (Entertainment)",
+  "Best Farmer (Agriculture)",
+  "Agri-Tech Innovator (Agriculture)",
+  "Best Agro-vet (Agriculture)",
+  "Youth Leader of the Year (Leadership)",
+  "Community Leader (Leadership)",
+  "Student Leader (Leadership)",
+  "Startup of the Year (Business)",
+  "Best SME (Business)",
+  "Young Entrepreneur (Business)",
+  "Best Teacher (Education)",
+  "Top Student (Education)",
+  "School of the Year (Education)",
+  "Best Nurse (Health)",
+  "Best Doctor (Health)",
+  "Community Health Worker (Health)",
+  "Best Hotel (Hospitality)",
+  "Best Restaurant/Cafe (Hospitality)",
+  "Chef of the Year (Hospitality)",
+  "Tour Guide of the Year (Tourism)",
+  "Best Travel Agency (Tourism)",
+  "Tech Innovator (Technology)",
+  "Best Software Developer (Technology)",
+  "Best IT Setup (Technology)",
+  "Youth Pastor of the Year (Religion)",
+  "Best Church Choir (Religion)",
+  "Best Footballer (Sports)",
+  "Athlete of the Year (Sports)",
+  "Best Coach (Sports)",
+  "Lifetime Achievement (Special)",
+  "Honorary Award (Special)"
+];
+
 export default function RegisterPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -35,21 +73,21 @@ export default function RegisterPage() {
     setIsSubmitting(true);
 
     try {
-      // 1. Upload the image to Supabase Storage
+      // 1. Upload Photo
       const fileExt = file.name.split('.').pop();
       const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
-      const { error: uploadError, data } = await supabase.storage
+      const { error: uploadError } = await supabase.storage
         .from('nominee-photos')
         .upload(fileName, file);
 
       if (uploadError) throw uploadError;
 
-      // 2. Get the public URL of the uploaded image
+      // 2. Get URL
       const { data: { publicUrl } } = supabase.storage
         .from('nominee-photos')
         .getPublicUrl(fileName);
 
-      // 3. Save the form data + image URL to the database
+      // 3. Save to Database
       const { error: dbError } = await supabase
         .from('nominees')
         .insert([
@@ -58,14 +96,13 @@ export default function RegisterPage() {
             age: parseInt(formData.age),
             phone: formData.phone,
             location: formData.location,
-            category: formData.category,
+            category: formData.category, 
             photo_url: publicUrl
           }
         ]);
 
       if (dbError) throw dbError;
 
-      // Success! Show confirmation
       setSuccess(true);
       
     } catch (error) {
@@ -94,7 +131,6 @@ export default function RegisterPage() {
   return (
     <div className="min-h-screen bg-[#050505] relative flex items-center justify-center py-24 px-6 overflow-hidden">
       
-      {/* Background Styling */}
       <div className="absolute inset-0 z-0">
         <img src="/vmea-bg.jpg" alt="Background" className="absolute inset-0 w-full h-full object-cover opacity-30" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/80 via-[#050505]/95 to-[#050505]" />
@@ -102,7 +138,6 @@ export default function RegisterPage() {
 
       <div className="relative z-10 w-full max-w-2xl bg-[#111111]/80 backdrop-blur-xl border border-[#D4AF37]/20 p-8 md:p-12 rounded-[2rem] shadow-2xl">
         
-        {/* Header */}
         <Link href="/" className="inline-flex items-center gap-2 text-[#D4AF37] hover:text-white transition-colors text-[10px] font-bold uppercase tracking-widest mb-8">
           <ArrowLeft className="w-4 h-4" /> Back to Home
         </Link>
@@ -112,7 +147,6 @@ export default function RegisterPage() {
           <p className="text-white/60 text-sm">Fill in your details below to submit your profile for the Voice of Meru Excellence Awards.</p>
         </div>
 
-        {/* The Form */}
         <form className="space-y-6" onSubmit={handleSubmit}>
           
           <div>
@@ -149,23 +183,14 @@ export default function RegisterPage() {
           </div>
 
           <div>
-            <label className="block text-[#D4AF37] text-xs font-bold uppercase tracking-widest mb-2">5. Category</label>
+            <label className="block text-[#D4AF37] text-xs font-bold uppercase tracking-widest mb-2">5. Award Category</label>
             <div className="relative">
               <Trophy className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40" />
               <select name="category" value={formData.category} onChange={handleInputChange} className="w-full bg-[#050505] border border-white/10 rounded-xl py-4 pl-12 pr-4 text-white appearance-none focus:outline-none focus:border-[#D4AF37] transition-colors" required>
-                <option value="" disabled>Select a main category...</option>
-                <option value="entertainment">Entertainment</option>
-                <option value="agriculture">Agriculture & Farming</option>
-                <option value="leadership">Leadership</option>
-                <option value="business">Business & Entrepreneurship</option>
-                <option value="education">Education</option>
-                <option value="health">Health</option>
-                <option value="hospitality">Hospitality</option>
-                <option value="tourism">Tourism</option>
-                <option value="technology">Technology & Innovation</option>
-                <option value="religion">Religion & Community</option>
-                <option value="sports">Football & Sports</option>
-                <option value="special">Special Recognition</option>
+                <option value="" disabled>Select an award...</option>
+                {AWARD_CATEGORIES.map((award) => (
+                  <option key={award} value={award}>{award}</option>
+                ))}
               </select>
             </div>
           </div>

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
 import { Users, Loader2, RefreshCw, Lock, ArrowRight } from "lucide-react";
 
@@ -32,10 +32,10 @@ export default function AdminDashboard() {
   const fetchNominees = async () => {
     setLoading(true);
     try {
+      // Removed the .order() line here since the table doesn't have an 'id' column yet!
       const { data, error } = await supabase
         .from('nominees')
-        .select('*')
-        .order('id', { ascending: false });
+        .select('*');
 
       if (error) throw error;
       setNominees(data || []);
@@ -151,14 +151,20 @@ export default function AdminDashboard() {
                     </td>
                   </tr>
                 ) : (
-                  nominees.map((nominee) => (
-                    <tr key={nominee.id} className="hover:bg-white/5 transition-colors group">
+                  nominees.map((nominee, index) => (
+                    <tr key={index} className="hover:bg-white/5 transition-colors group">
                       <td className="p-4">
-                        <img 
-                          src={nominee.photo_url} 
-                          alt={nominee.full_name} 
-                          className="w-12 h-12 object-cover rounded-full border border-white/10 group-hover:border-[#D4AF37] transition-colors"
-                        />
+                        {nominee.photo_url ? (
+                          <img 
+                            src={nominee.photo_url} 
+                            alt={nominee.full_name} 
+                            className="w-12 h-12 object-cover rounded-full border border-white/10 group-hover:border-[#D4AF37] transition-colors"
+                          />
+                        ) : (
+                          <div className="w-12 h-12 bg-white/5 rounded-full border border-white/10 flex items-center justify-center">
+                            <Users className="w-5 h-5 text-white/30" />
+                          </div>
+                        )}
                       </td>
                       <td className="p-4 font-medium">{nominee.full_name}</td>
                       <td className="p-4 text-white/70">{nominee.age}</td>
