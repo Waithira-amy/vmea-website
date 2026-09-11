@@ -4,165 +4,80 @@ import Link from "next/link";
 import { User, Calendar, Phone, MapPin, Trophy, Upload, ArrowLeft, Loader2, CheckCircle2 } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 
-// 🏆 THE COMPLETE VMEA AWARDS MASTER LIST
-const AWARD_CATEGORIES = [
-  // --- Entertainment ---
-  "Male Artist of the Year (Entertainment)",
-  "Female Artist of the Year (Entertainment)",
-  "Male Actor of the Year (Entertainment)",
-  "Female Actor of the Year (Entertainment)",
-  "Comedian of the Year (Entertainment)",
-  "DJ of the Year (Entertainment)",
-  "Upcoming Artist of the Year (Entertainment)",
-  "Content Creator of the Year (Entertainment)",
-  "Radio Presenter of the Year (Entertainment)",
-  "Best Photography/Videographer (Entertainment)",
-  "Artist of the Year (Entertainment)",
-  "Best Cultural Preservation Initiative (Entertainment)",
-  "Journalist of the Year (Entertainment)",
-  "Best Local Media House (Entertainment)",
-  "Photographer of the Year (Entertainment)",
-  "Fashion Designer of the Year (Entertainment)",
-
-  // --- Agriculture & Farming ---
-  "Farmer of the Year (Agriculture)",
-  "Best Dairy Farmer (Agriculture)",
-  "Best Coffee Farmer (Agriculture)",
-  "Best Miraa (Khat) Farmer (Agriculture)",
-  "Best Tea Farmer (Agriculture)",
-  "Best Horticulture Farmer (Agriculture)",
-  "Horticulture Farmer of the Year (Agriculture)",
-  "Best Poultry Farmer (Agriculture)",
-  "Best Livestock Farmer (Agriculture)",
-  "Agribusiness Innovator of the Year (Agriculture)",
-  "Young Farmer of the Year (Agriculture)",
-  "Woman Farmer of the Year (Agriculture)",
-  "Best Cooperative Society (Agriculture)",
-  "Agroforestry Champion (Agriculture)",
-  "Best Irrigation Project (Agriculture)",
-
-  // --- Leadership ---
-  "Best Performing MP (Leadership)",
-  "Best Performing MCA (Leadership)",
-  "Most Influential Youth Leader (Leadership)",
-  "Leader of the Year (Leadership)",
-  "Lifetime Leadership Achievement Award (Leadership)",
-  "Public Servant of the Year (Leadership)",
-  "Best Ward Development Project (Leadership)",
-  "Community Service Award (Leadership)",
-  "Transparency & Accountability Award (Leadership)",
-  "Best NGO/CBO (Leadership)",
-  "Peace Ambassador Award (Leadership)",
-  "Chief/Assistant Chief of the Year (Leadership)",
-
-  // --- Business & Entrepreneurship ---
-  "Entrepreneur of the Year (Business)",
-  "Young Entrepreneur of the Year (Business)",
-  "Woman Entrepreneur of the Year (Business)",
-  "Best SME (Business)",
-  "Best Startup (Business)",
-  "Business Innovation Award (Business)",
-  "Best Retail Business (Business)",
-  "Best Hospitality Business (Business)",
-  "Best Transport & Logistics Business (Business)",
-  "Best Manufacturing Enterprise (Business)",
-  "Best Export Business (Business)",
-  "Best CSR Initiative (Business)",
-  "Business Lifetime Achievement Award (Business)",
-  "Bank (Business)",
-  "Best Distributor of the Year (Business)",
-
-  // --- Education ---
-  "Best Primary School (Education)",
-  "Best Secondary School (Education)",
-  "Best Teacher (Primary) (Education)",
-  "Best Teacher (Secondary) (Education)",
-  "Head Teacher of the Year (Education)",
-  "Best TVET Institution (Education)",
-  "Outstanding Student Award (Education)",
-  "Best School Sports Program (Education)",
-  "Education Innovation Award (Education)",
-  "Best Special Needs School/Program (Education)",
-
-  // --- Health ---
-  "Health Worker of the Year (Health)",
-  "Best Health Facility (Health)",
-  "Community Health Volunteer of the Year (Health)",
-  "Maternal Health Champion (Health)",
-  "Mental Health Advocate of the Year (Health)",
-  "Best Public Health Initiative (Health)",
-  "Nurse of the Year (Health)",
-  "Doctor of the Year (Health)",
-
-  // --- Hospitality ---
-  "Best Luxury Hotel (Hospitality)",
-  "Best Budget Hotel (Hospitality)",
-  "Best Resort (Hospitality)",
-  "Best Lodge and Bar (Hospitality)",
-  "Best Guest House (Hospitality)",
-  "Best Airbnb/Vacation Rental (Hospitality)",
-  "Chef of the Year (Hospitality)",
-
-  // --- Tourism ---
-  "Best Tour Operator (Tourism)",
-  "Best Travel Agency (Tourism)",
-  "Best Safari Company (Tourism)",
-  "Best Tour Guide (Tourism)",
-  "Best Travel Content Creator (Tourism)",
-
-  // --- Technology & Innovation ---
-  "Tech Entrepreneur of the Year (Technology)",
-  "Best Tech Startup (Technology)",
-  "Digital Excellence Award (Technology)",
-  "Best Use of Technology in Agriculture (Technology)",
-  "ICT Champion of the Year (Technology)",
-  "Best AI Innovation (Technology)",
-  "Best Digital Service Provider (Technology)",
-  "Best Agritech Innovation (Technology)",
-  "Technology Influencer of the Year (Technology)",
-  "Young Tech Innovator of the Year (Technology)",
-
-  // --- Religion & Community ---
-  "Religious Leader of the Year (Religion)",
-  "Community Leader of the Year (Religion)",
-  "Clergy/Pastor of the Year (Religion)",
-  "Bishop of the Year (Religion)",
-  "Priest of the Year (Religion)",
-  "Faith Leader of the Year (Religion)",
-  "Youth Ministry Leader of the Year (Religion)",
-  "Humanitarian of the Year (Religion)",
-  "Social Impact Leader of the Year (Religion)",
-  "Community Organization of the Year (Religion)",
-  "Youth Empowerment Champion (Religion)",
-  "Women's Empowerment Champion (Religion)",
-  "Environmental Community Champions (Religion)",
-
-  // --- Football & Sports ---
-  "Footballer of the Year (Sports)",
-  "Best Male Footballer (Sports)",
-  "Best Female Footballer (Sports)",
-  "Young Footballer of the Year (Sports)",
-  "Coach of the Year (Sports)",
-  "Goalkeeper of the Year (Sports)",
-  "Football Club of the Year (Sports)",
-  "Sports Coach of the Year (Sports)",
-  "Athlete of the Year (Sports)",
-  "Best Rugby Player (Sports)",
-  "Best Volleyball Player (Sports)",
-  "Best Basketball Player (Sports)",
-  "Best Boxer (Sports)",
-  "Best Martial Arts Athlete (Sports)",
-  "Best Runner/Athlete (Sports)",
-  "Best Swimmer (Sports)",
-  "Best Cyclist (Sports)",
-  "Best Motor Sports Athlete (Sports)",
-  "Best Disability Sports Athlete (Sports)",
-
-  // --- Special Recognition ---
-  "Lifetime Achievement Award (Special Recognition)",
-  "Meru Icon of the Year (Special Recognition)",
-  "Legacy Award (Special Recognition)"
-];
+// 🏆 THE COMPLETE VMEA AWARDS MASTER DICTIONARY
+const SUBCATEGORIES: Record<string, string[]> = {
+  "Entertainment": [
+    "Male Artist of the Year", "Female Artist of the Year", "Male Actor of the Year", 
+    "Female Actor of the Year", "Comedian of the Year", "DJ of the Year", 
+    "Upcoming Artist of the Year", "Content Creator of the Year", "Radio Presenter of the Year", 
+    "Best Photography/Videographer", "Artist of the Year", "Best Cultural Preservation Initiative", 
+    "Journalist of the Year", "Best Local Media House", "Photographer of the Year", 
+    "Fashion Designer of the Year"
+  ],
+  "Agriculture & Farming": [
+    "Farmer of the Year", "Best Dairy Farmer", "Best Coffee Farmer", 
+    "Best Miraa (Khat) Farmer", "Best Tea Farmer", "Best Horticulture Farmer", 
+    "Horticulture Farmer of the Year", "Best Poultry Farmer", "Best Livestock Farmer", 
+    "Agribusiness Innovator of the Year", "Young Farmer of the Year", "Woman Farmer of the Year", 
+    "Best Cooperative Society", "Agroforestry Champion", "Best Irrigation Project"
+  ],
+  "Leadership": [
+    "Best Performing MP", "Best Performing MCA", "Most Influential Youth Leader", 
+    "Leader of the Year", "Lifetime Leadership Achievement Award", "Public Servant of the Year", 
+    "Best Ward Development Project", "Community Service Award", "Transparency & Accountability Award", 
+    "Best NGO/CBO", "Peace Ambassador Award", "Chief/Assistant Chief of the Year"
+  ],
+  "Business & Entrepreneurship": [
+    "Entrepreneur of the Year", "Young Entrepreneur of the Year", "Woman Entrepreneur of the Year", 
+    "Best SME", "Best Startup", "Business Innovation Award", "Best Retail Business", 
+    "Best Hospitality Business", "Best Transport & Logistics Business", "Best Manufacturing Enterprise", 
+    "Best Export Business", "Best CSR Initiative", "Business Lifetime Achievement Award", 
+    "Bank", "Best Distributor of the Year"
+  ],
+  "Education": [
+    "Best Primary School", "Best Secondary School", "Best Teacher (Primary)", 
+    "Best Teacher (Secondary)", "Head Teacher of the Year", "Best TVET Institution", 
+    "Outstanding Student Award", "Best School Sports Program", "Education Innovation Award", 
+    "Best Special Needs School/Program"
+  ],
+  "Health": [
+    "Health Worker of the Year", "Best Health Facility", "Community Health Volunteer of the Year", 
+    "Maternal Health Champion", "Mental Health Advocate of the Year", "Best Public Health Initiative", 
+    "Nurse of the Year", "Doctor of the Year"
+  ],
+  "Hospitality": [
+    "Best Luxury Hotel", "Best Budget Hotel", "Best Resort", 
+    "Best Lodge and Bar", "Best Guest House", "Best Airbnb/Vacation Rental", "Chef of the Year"
+  ],
+  "Tourism": [
+    "Best Tour Operator", "Best Travel Agency", "Best Safari Company", 
+    "Best Tour Guide", "Best Travel Content Creator"
+  ],
+  "Technology & Innovation": [
+    "Tech Entrepreneur of the Year", "Best Tech Startup", "Digital Excellence Award", 
+    "Best Use of Technology in Agriculture", "ICT Champion of the Year", "Best AI Innovation", 
+    "Best Digital Service Provider", "Best Agritech Innovation", "Technology Influencer of the Year", 
+    "Young Tech Innovator of the Year"
+  ],
+  "Religion & Community": [
+    "Religious Leader of the Year", "Community Leader of the Year", "Clergy/Pastor of the Year", 
+    "Bishop of the Year", "Priest of the Year", "Faith Leader of the Year", 
+    "Youth Ministry Leader of the Year", "Humanitarian of the Year", "Social Impact Leader of the Year", 
+    "Community Organization of the Year", "Youth Empowerment Champion", "Women's Empowerment Champion", 
+    "Environmental Community Champions"
+  ],
+  "Football & Sports": [
+    "Footballer of the Year", "Best Male Footballer", "Best Female Footballer", 
+    "Young Footballer of the Year", "Coach of the Year", "Goalkeeper of the Year", 
+    "Football Club of the Year", "Sports Coach of the Year", "Athlete of the Year", 
+    "Best Rugby Player", "Best Volleyball Player", "Best Basketball Player", 
+    "Best Boxer", "Best Martial Arts Athlete", "Best Runner/Athlete", 
+    "Best Swimmer", "Best Cyclist", "Best Motor Sports Athlete", "Best Disability Sports Athlete"
+  ],
+  "Special Recognition": [
+    "Lifetime Achievement Award", "Meru Icon of the Year", "Legacy Award"
+  ]
+};
 
 export default function RegisterPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -174,12 +89,20 @@ export default function RegisterPage() {
     age: "",
     phone: "",
     location: "",
-    category: "",
+    main_category: "",
+    exact_subcategory: "", 
   });
   const [file, setFile] = useState<File | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    
+    // If they change the main category, reset the exact award so they don't accidentally submit a mismatch
+    if (name === "main_category") {
+      setFormData({ ...formData, main_category: value, exact_subcategory: "" });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -191,6 +114,7 @@ export default function RegisterPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!file) return alert("Please upload a photo.");
+    if (!formData.exact_subcategory) return alert("Please select the exact award.");
     
     setIsSubmitting(true);
 
@@ -209,7 +133,9 @@ export default function RegisterPage() {
         .from('nominee-photos')
         .getPublicUrl(fileName);
 
-      // 3. Save to Database
+      // 3. Save to Database - Formatting it perfectly with the brackets!
+      const finalCategoryString = `${formData.exact_subcategory} (${formData.main_category})`;
+      
       const { error: dbError } = await supabase
         .from('nominees')
         .insert([
@@ -218,7 +144,7 @@ export default function RegisterPage() {
             age: parseInt(formData.age),
             phone: formData.phone,
             location: formData.location,
-            category: formData.category, 
+            category: finalCategoryString, // Saves as "Best DJ (Entertainment)"
             photo_url: publicUrl
           }
         ]);
@@ -304,16 +230,42 @@ export default function RegisterPage() {
             </div>
           </div>
 
-          <div>
-            <label className="block text-[#D4AF37] text-xs font-bold uppercase tracking-widest mb-2">5. Award Category</label>
-            <div className="relative">
-              <Trophy className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40" />
-              <select name="category" value={formData.category} onChange={handleInputChange} className="w-full bg-[#050505] border border-white/10 rounded-xl py-4 pl-12 pr-4 text-white appearance-none focus:outline-none focus:border-[#D4AF37] transition-colors" required>
-                <option value="" disabled>Select an award...</option>
-                {AWARD_CATEGORIES.map((award) => (
-                  <option key={award} value={award}>{award}</option>
-                ))}
-              </select>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* 1st Dropdown: Main Category */}
+            <div>
+              <label className="block text-[#D4AF37] text-xs font-bold uppercase tracking-widest mb-2">5. Main Category</label>
+              <div className="relative">
+                <Trophy className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40" />
+                <select name="main_category" value={formData.main_category} onChange={handleInputChange} className="w-full bg-[#050505] border border-white/10 rounded-xl py-4 pl-12 pr-4 text-white appearance-none focus:outline-none focus:border-[#D4AF37] transition-colors" required>
+                  <option value="" disabled>Select a field...</option>
+                  {Object.keys(SUBCATEGORIES).map((category) => (
+                    <option key={category} value={category}>{category}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            {/* 2nd Dropdown: Exact Subcategory */}
+            <div>
+              <label className="block text-[#D4AF37] text-xs font-bold uppercase tracking-widest mb-2">Exact Award</label>
+              <div className="relative">
+                <Trophy className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40" />
+                <select 
+                  name="exact_subcategory" 
+                  value={formData.exact_subcategory} 
+                  onChange={handleInputChange} 
+                  disabled={!formData.main_category}
+                  className="w-full bg-[#050505] border border-white/10 rounded-xl py-4 pl-12 pr-4 text-white appearance-none focus:outline-none focus:border-[#D4AF37] transition-colors disabled:opacity-50" 
+                  required
+                >
+                  <option value="" disabled>
+                    {formData.main_category ? "Pick the exact award..." : "Select main category first"}
+                  </option>
+                  {formData.main_category && SUBCATEGORIES[formData.main_category]?.map((sub) => (
+                    <option key={sub} value={sub}>{sub}</option>
+                  ))}
+                </select>
+              </div>
             </div>
           </div>
 
