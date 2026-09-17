@@ -37,15 +37,15 @@ export default function Gallery() {
   return (
     <section id="gallery" className="relative bg-[#050505] py-24 px-6 text-white overflow-hidden">
       
-      {/* Corrected Hero Background Layer */}
+      {/* Fully Visible Hero Background Layer */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img 
           src="/hero-bg.jpg" 
           alt="VMEA Background Pattern" 
-          className="absolute inset-0 w-full h-full object-cover opacity-20" 
+          className="absolute inset-0 w-full h-full object-cover opacity-100" 
         />
-        {/* Gradient to blend the top and bottom edges smoothly into the rest of the page */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#050505]/50 to-[#050505]" />
+        {/* Soft edge blend only at the very top and bottom so it doesn't look cut off, leaving the middle 100% bright */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-transparent to-[#050505]" />
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto">
