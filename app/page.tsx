@@ -19,9 +19,9 @@ export default function HomePage() {
       */}
       <Navbar />
       <Hero />
+      <Gallery />
       <About />
       <Categories />
-      <Gallery />
       <Sponsors />
       <Footer />
     </main>
