@@ -37,14 +37,16 @@ export default function Gallery() {
   return (
     <section id="gallery" className="relative w-full py-24 overflow-hidden bg-[#050505]">
       
-      {/* Background Image & Overlays - Matched exactly to Categories.tsx */}
+      {/* Background Image & Overlays */}
       <div className="absolute inset-0 z-0">
         <img 
           src="/hero-bg.jpg" 
           alt="VMEA Background Pattern" 
-          className="absolute inset-0 w-full h-full object-cover object-center opacity-85" 
+          /* Changed from object-center to object-top to push the watermark down behind the photos! */
+          className="absolute inset-0 w-full h-full object-cover object-top opacity-85" 
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#050505]/30 to-[#050505]" />
+        {/* Added a slightly stronger gradient fade at the top so the text pops perfectly */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#050505]/40 to-[#050505]" />
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto px-6">
