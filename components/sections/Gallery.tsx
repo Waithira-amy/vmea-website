@@ -37,9 +37,15 @@ export default function Gallery() {
   return (
     <section id="gallery" className="relative bg-[#050505] py-24 px-6 text-white overflow-hidden">
       
-      {/* Subtle Background Glow */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#D4AF37]/5 rounded-full blur-[120px] pointer-events-none" />
+      {/* VMEA Patterned Background Layer */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <img 
+          src="/vmea-bg.jpg" 
+          alt="VMEA Background Pattern" 
+          className="absolute inset-0 w-full h-full object-cover opacity-20" 
+        />
+        {/* Gradient to blend the top and bottom edges smoothly into the rest of the page */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#050505]/50 to-[#050505]" />
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto">
@@ -103,9 +109,12 @@ export default function Gallery() {
         </div>
 
         {/* WeTransfer External Link Section */}
-        <div className="bg-[#111111]/80 backdrop-blur-xl border border-white/10 rounded-[2rem] p-8 md:p-12 text-center flex flex-col items-center shadow-2xl">
-          <h3 className="text-xl md:text-2xl font-serif font-bold mb-3">Want to see more?</h3>
-          <p className="text-white/60 text-sm md:text-base max-w-2xl mb-8">
+        <div className="bg-[#111111]/80 backdrop-blur-xl border border-[#D4AF37]/20 rounded-[2rem] p-8 md:p-12 text-center flex flex-col items-center shadow-2xl relative overflow-hidden">
+          {/* A tiny subtle gold glow for the card */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/5 to-transparent pointer-events-none" />
+          
+          <h3 className="relative z-10 text-xl md:text-2xl font-serif font-bold mb-3">Want to see more?</h3>
+          <p className="relative z-10 text-white/60 text-sm md:text-base max-w-2xl mb-8">
             These are just a few of the unforgettable moments. We have a full collection of high-quality images from the awards available for you to browse, save, and share.
           </p>
           
@@ -113,7 +122,7 @@ export default function Gallery() {
             href={WETRANSFER_LINK} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-[#D4AF37] text-black px-8 py-4 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-yellow-400 transition-all shadow-[0_0_30px_rgba(212,175,55,0.2)]"
+            className="relative z-10 inline-flex items-center gap-3 bg-[#D4AF37] text-black px-8 py-4 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-yellow-400 transition-all shadow-[0_0_30px_rgba(212,175,55,0.2)]"
           >
             View all photos <ExternalLink className="w-4 h-4" />
           </a>
