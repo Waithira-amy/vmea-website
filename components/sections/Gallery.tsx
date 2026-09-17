@@ -35,28 +35,27 @@ export default function Gallery() {
   }, []);
 
   return (
-    <section id="gallery" className="relative bg-[#050505] py-24 px-6 text-white overflow-hidden">
+    <section id="gallery" className="relative w-full py-24 overflow-hidden bg-[#050505]">
       
-      {/* Fully Visible Hero Background Layer */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
+      {/* Background Image & Overlays - Matched exactly to Categories.tsx */}
+      <div className="absolute inset-0 z-0">
         <img 
           src="/hero-bg.jpg" 
           alt="VMEA Background Pattern" 
-          className="absolute inset-0 w-full h-full object-cover opacity-100" 
+          className="absolute inset-0 w-full h-full object-cover object-center opacity-85" 
         />
-        {/* Soft edge blend only at the very top and bottom so it doesn't look cut off, leaving the middle 100% bright */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-transparent to-[#050505]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#050505]/30 to-[#050505]" />
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto">
+      <div className="relative z-10 max-w-5xl mx-auto px-6">
         
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="w-16 h-16 bg-[#D4AF37]/10 rounded-full flex items-center justify-center mx-auto mb-6 border border-[#D4AF37]/20">
             <ImageIcon className="w-8 h-8 text-[#D4AF37]" />
           </div>
-          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4">Event <span className="text-[#D4AF37]">Gallery</span></h2>
-          <p className="text-white/60 max-w-xl mx-auto text-sm md:text-base">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-white drop-shadow-lg mb-4">Event <span className="text-[#D4AF37]">Gallery</span></h2>
+          <p className="text-white/70 max-w-xl mx-auto text-sm md:text-base leading-relaxed">
             Take a look at the highlights and unforgettable moments from the Voice of Meru Excellence Awards.
           </p>
         </div>
@@ -109,12 +108,10 @@ export default function Gallery() {
         </div>
 
         {/* WeTransfer External Link Section */}
-        <div className="bg-[#111111]/80 backdrop-blur-xl border border-[#D4AF37]/20 rounded-[2rem] p-8 md:p-12 text-center flex flex-col items-center shadow-2xl relative overflow-hidden">
-          {/* A tiny subtle gold glow for the card */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/5 to-transparent pointer-events-none" />
+        <div className="bg-[#111111]/90 backdrop-blur-md border border-[#D4AF37]/20 rounded-[2rem] p-8 md:p-12 text-center flex flex-col items-center shadow-2xl relative overflow-hidden">
           
-          <h3 className="relative z-10 text-xl md:text-2xl font-serif font-bold mb-3">Want to see more?</h3>
-          <p className="relative z-10 text-white/60 text-sm md:text-base max-w-2xl mb-8">
+          <h3 className="relative z-10 text-xl md:text-2xl font-serif font-bold mb-3 text-white">Want to see more?</h3>
+          <p className="relative z-10 text-white/70 text-sm md:text-base max-w-2xl mb-8 leading-relaxed">
             These are just a few of the unforgettable moments. We have a full collection of high-quality images from the awards available for you to browse, save, and share.
           </p>
           
