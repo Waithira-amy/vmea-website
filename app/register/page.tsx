@@ -12,7 +12,29 @@ const SUBCATEGORIES: Record<string, string[]> = {
     "Upcoming Artist of the Year", "Content Creator of the Year", "Radio Presenter of the Year", 
     "Best Photography/Videographer", "Artist of the Year", "Best Cultural Preservation Initiative", 
     "Journalist of the Year", "Best Local Media House", "Photographer of the Year", 
-    "Fashion Designer of the Year"
+    "Fashion Designer of the Year", "Dancers", "Vixens", "Event Organizers", 
+    "Producers", "Director", "Song Writer", "Poets and Writers"
+  ],
+  "Media and Journalism": [
+    "Best Radio Presenter", "Best Radio Station", "Best TV Presenter", 
+    "Best TV Station", "Best Journalist", "Best News Anchor", 
+    "Best Investigative Journalist", "Best Entertainment Journalist", "Best Sports Journalist", 
+    "Best Political Journalist", "Best Digital Journalist", "Best Blogger", 
+    "Best Content Creator", "Best YouTube Channel", "Best Podcast", 
+    "Best Online Media Platform", "Best Social Media Personality", "Media Personality of the Year", 
+    "Rising Media Personality of the Year", "Media House of the Year", "Best Photography & Visual Storytelling", 
+    "Best Videographer"
+  ],
+  "Fashion": [
+    "Fashion Designer of the Year", "Best Fashion Brand of the Year", "Fashion Model of the Year", 
+    "Male Fashion Icon of the Year", "Female Fashion Icon of the Year", "Best Dressed Personality of the Year", 
+    "Best Traditional Wear/Attire", "Emerging Fashion Talent of the Year", "Fashion Content Creator of the Year", 
+    "Fashion Photographer of the Year", "Best Stylist of the Year", "Fashion Influencer of the Year"
+  ],
+  "Beauty": [
+    "Makeup Artist of the Year", "Beauty Influencer of the Year", "Beauty Content Creator of the Year", 
+    "Beauty Salon of the Year", "Barber of the Year", "Nail Artist of the Year", 
+    "Hair Stylist of the Year", "Beauty Brand of the Year"
   ],
   "Agriculture & Farming": [
     "Farmer of the Year", "Best Dairy Farmer", "Best Coffee Farmer", 
@@ -25,7 +47,7 @@ const SUBCATEGORIES: Record<string, string[]> = {
     "Best Performing MP", "Best Performing MCA", "Most Influential Youth Leader", 
     "Leader of the Year", "Lifetime Leadership Achievement Award", "Public Servant of the Year", 
     "Best Ward Development Project", "Community Service Award", "Transparency & Accountability Award", 
-    "Best NGO/CBO", "Peace Ambassador Award", "Chief/Assistant Chief of the Year"
+    "Best NGO/CBO", "Peace Ambassador Award", "Chief/Assistant Chief of the Year", "Promising Aspirant"
   ],
   "Business & Entrepreneurship": [
     "Entrepreneur of the Year", "Young Entrepreneur of the Year", "Woman Entrepreneur of the Year", 

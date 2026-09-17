@@ -8,7 +8,7 @@ export default function Categories() {
   const categoryList = [
     { 
       title: "Entertainment", 
-      count: "16 Sub-Categories",
+      count: "23 Sub-Categories", // Updated count
       desc: "Recognizing outstanding talent in media, arts, and creative industries.",
       subCategories: [
         "Male Artist of the Year", "Female Artist of the Year", "Male Actor of the Year", 
@@ -16,7 +16,44 @@ export default function Categories() {
         "Upcoming Artist of the Year", "Content Creator of the Year", "Radio Presenter of the Year", 
         "Best Photography/Videographer", "Artist of the Year", "Best Cultural Preservation Initiative", 
         "Journalist of the Year", "Best Local Media House", "Photographer of the Year", 
-        "Fashion Designer of the Year"
+        "Fashion Designer of the Year", "Dancers", "Vixens", "Event Organizers", 
+        "Producers", "Director", "Song Writer", "Poets and Writers"
+      ]
+    },
+    {
+      title: "Media and Journalism",
+      count: "22 Sub-Categories",
+      desc: "Honoring excellence in broadcasting, journalism, and digital media.",
+      subCategories: [
+        "Best Radio Presenter", "Best Radio Station", "Best TV Presenter", 
+        "Best TV Station", "Best Journalist", "Best News Anchor", 
+        "Best Investigative Journalist", "Best Entertainment Journalist", "Best Sports Journalist", 
+        "Best Political Journalist", "Best Digital Journalist", "Best Blogger", 
+        "Best Content Creator", "Best YouTube Channel", "Best Podcast", 
+        "Best Online Media Platform", "Best Social Media Personality", "Media Personality of the Year", 
+        "Rising Media Personality of the Year", "Media House of the Year", "Best Photography & Visual Storytelling", 
+        "Best Videographer"
+      ]
+    },
+    {
+      title: "Fashion",
+      count: "12 Sub-Categories",
+      desc: "Celebrating trendsetters, designers, and icons in the fashion industry.",
+      subCategories: [
+        "Fashion Designer of the Year", "Best Fashion Brand of the Year", "Fashion Model of the Year", 
+        "Male Fashion Icon of the Year", "Female Fashion Icon of the Year", "Best Dressed Personality of the Year", 
+        "Best Traditional Wear/Attire", "Emerging Fashion Talent of the Year", "Fashion Content Creator of the Year", 
+        "Fashion Photographer of the Year", "Best Stylist of the Year", "Fashion Influencer of the Year"
+      ]
+    },
+    {
+      title: "Beauty",
+      count: "8 Sub-Categories",
+      desc: "Highlighting top professionals and brands in the beauty and grooming sector.",
+      subCategories: [
+        "Makeup Artist of the Year", "Beauty Influencer of the Year", "Beauty Content Creator of the Year", 
+        "Beauty Salon of the Year", "Barber of the Year", "Nail Artist of the Year", 
+        "Hair Stylist of the Year", "Beauty Brand of the Year"
       ]
     },
     { 
@@ -33,13 +70,13 @@ export default function Categories() {
     },
     { 
       title: "Leadership", 
-      count: "12 Sub-Categories",
+      count: "13 Sub-Categories", // Updated count
       desc: "Honoring outstanding political, civil, and community leaders.",
       subCategories: [
         "Best Performing MP", "Best Performing MCA", "Most Influential Youth Leader", 
         "Leader of the Year", "Lifetime Leadership Achievement Award", "Public Servant of the Year", 
         "Best Ward Development Project", "Community Service Award", "Transparency & Accountability Award", 
-        "Best NGO/CBO", "Peace Ambassador Award", "Chief/Assistant Chief of the Year"
+        "Best NGO/CBO", "Peace Ambassador Award", "Chief/Assistant Chief of the Year", "Promising Aspirant"
       ]
     },
     { 
@@ -161,7 +198,7 @@ export default function Categories() {
           </span>
           <h2 className="font-serif text-3xl md:text-5xl font-bold text-white drop-shadow-lg">Voting Categories</h2>
           <p className="text-white/70 max-w-2xl mx-auto mt-4 text-xs md:text-sm leading-relaxed">
-            We feature 130 distinct categories across 12 major pillars. Click on any pillar below to explore the specific awards honoring the very best in Meru County.
+            We feature over 180 distinct categories across 15 major pillars. Click on any pillar below to explore the specific awards honoring the very best in Meru County.
           </p>
         </div>
         
@@ -207,7 +244,6 @@ export default function Categories() {
               {categoryList[activeCategory].subCategories.map((sub, idx) => (
                 <div key={idx} className="bg-[#050505] border border-white/5 p-4 rounded-xl flex items-center justify-between hover:border-[#D4AF37]/20 transition-colors group">
                   <span className="text-white/90 text-xs md:text-sm font-medium pr-2 leading-tight">{sub}</span>
-                  {/* Updated the hover text here! */}
                   <span className="text-[8px] md:text-[9px] text-[#D4AF37] uppercase tracking-widest font-bold opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0 text-right">
                     Voting Starting Soon
                   </span>
