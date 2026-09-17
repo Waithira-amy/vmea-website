@@ -37,10 +37,10 @@ export default function Gallery() {
   return (
     <section id="gallery" className="relative bg-[#050505] py-24 px-6 text-white overflow-hidden">
       
-      {/* VMEA Patterned Background Layer */}
+      {/* Corrected Hero Background Layer */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img 
-          src="/vmea-bg.jpg" 
+          src="/hero-bg.jpg" 
           alt="VMEA Background Pattern" 
           className="absolute inset-0 w-full h-full object-cover opacity-20" 
         />
