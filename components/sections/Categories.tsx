@@ -8,7 +8,7 @@ export default function Categories() {
   const categoryList = [
     { 
       title: "Entertainment", 
-      count: "23 Sub-Categories", // Updated count
+      count: "23 Sub-Categories",
       desc: "Recognizing outstanding talent in media, arts, and creative industries.",
       subCategories: [
         "Male Artist of the Year", "Female Artist of the Year", "Male Actor of the Year", 
@@ -16,8 +16,8 @@ export default function Categories() {
         "Upcoming Artist of the Year", "Content Creator of the Year", "Radio Presenter of the Year", 
         "Best Photography/Videographer", "Artist of the Year", "Best Cultural Preservation Initiative", 
         "Journalist of the Year", "Best Local Media House", "Photographer of the Year", 
-        "Fashion Designer of the Year", "Dancers", "Vixens", "Event Organizers", 
-        "Producers", "Director", "Song Writer", "Poets and Writers"
+        "Fashion Designer of the Year", "Dancer of the Year", "Vixen of the Year", "Event Organizer of the Year", 
+        "Producer of the Year", "Director of the Year", "Song Writer of the Year", "Poet and Writer of the Year"
       ]
     },
     {
@@ -70,7 +70,7 @@ export default function Categories() {
     },
     { 
       title: "Leadership", 
-      count: "13 Sub-Categories", // Updated count
+      count: "13 Sub-Categories",
       desc: "Honoring outstanding political, civil, and community leaders.",
       subCategories: [
         "Best Performing MP", "Best Performing MCA", "Most Influential Youth Leader", 
