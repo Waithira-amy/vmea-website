@@ -4,6 +4,7 @@ import Navbar from "@/components/common/Navbar";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Categories from "@/components/sections/Categories";
+import Gallery from "@/components/sections/Gallery";
 import Sponsors from "@/components/sections/Sponsors";
 import Footer from "@/components/common/Footer";
 
@@ -20,6 +21,7 @@ export default function HomePage() {
       <Hero />
       <About />
       <Categories />
+      <Gallery />
       <Sponsors />
       <Footer />
     </main>
